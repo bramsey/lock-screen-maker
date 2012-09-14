@@ -1,8 +1,8 @@
-scroller = ->
-  window.scrollTo(0,0)
+#scroller = ->
+#window.scrollTo(0,0)
 
-window.addEventListener 'load', ->
-  setTimeout(scroller, 0)
+  #window.addEventListener 'load', ->
+  #setTimeout(scroller, 0)
 
 $(document).ready ->
   $('#message_ready').bind 'click', (event) ->
