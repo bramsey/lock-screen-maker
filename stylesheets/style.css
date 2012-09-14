@@ -4,6 +4,10 @@
 	color: #444;
 }
 
+body {
+  min-height: 480px;
+}
+
 #container {
 	margin: auto;
 	width: 30em;
