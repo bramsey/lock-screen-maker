@@ -26,29 +26,41 @@
   };
 
   $(document).ready(function() {
-    var $message, msg;
+    var $interface, $message, $message_input, $message_show, $output;
     $message = $('#message');
-    msg = $('#message_input').attr('value');
+    $message_input = $('#message_input');
+    $message_show = $('#message_show');
+    $interface = $('#interface');
+    $output = $('#output');
     if (!window.navigator.standalone) {
       $('body').css('min-height', '480px');
       setTimeout(scroller, 100);
     }
-    $('#message_ready').bind('click', function(event) {
-      event.stopPropagation;
-      msg = $('#message_input').attr('value');
+    $message_show.bind('click', function(event) {
+      var msg;
+      event.stopPropagation();
+      msg = $message_input.attr('value');
       $message.html(msg);
-      $('#interface').hide();
+      $interface.hide();
       setTimeout(scroller, 0);
-      $('#output').fadeIn('fast');
+      $output.fadeIn('fast');
+      $output.css('display', 'table');
       return fitSize($message);
     });
-    $('#output').bind('click', function(event) {
-      $('#output').hide();
-      return $('#interface').fadeIn('fast');
+    $output.bind('click', function(event) {
+      $output.hide();
+      $interface.fadeIn('fast');
+      return $message_input.focus();
     });
-    return $('#message_input').bind('keydown', function(event) {
-      if (event.keyCode === 13) {
-        return $('#message_ready').trigger('click');
+    return $message_input.bind('keyup', function(event) {
+      var msg;
+      msg = $message_input.attr('value');
+      if (event.keyCode === 13 && msg !== '') {
+        return $message_show.trigger('click');
+      } else if (msg !== '') {
+        return $message_show.fadeIn('medium');
+      } else {
+        return $message_show.fadeOut('fast');
       }
     });
   });
