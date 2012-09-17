@@ -2,6 +2,12 @@
 scroller = ->
   window.scrollTo(0,0)
 
+greyScaler = (mini, i) ->
+  $(mini).addClass('grey' + i)
+
+removeGrey = (mini, i) ->
+  $(mini).removeClass('grey' + i)
+
 # dynamically resizes the output to maximize space
 fitSize = ($message) ->
   $message.css('font-size', 223)
@@ -25,6 +31,8 @@ $(document).ready ->
   $colors = $('#colors')
   $color_links = $colors.find('a')
   $selected_color_link = null
+  $color_minis = $('.mini')
+  $color_toggle = $('#color_toggle')
   default_color = $message.css('color')
 
   # prevent address bar compensation for mobile app
@@ -62,9 +70,15 @@ $(document).ready ->
     else
       $message_show.fadeOut('fast')
 
-  $('#color_toggle').bind 'click', (event) ->
+  $color_toggle.bind 'click', (event) ->
     event.preventDefault()
-    $colors.toggle()
+    if $colors.css('display') is 'none'
+      $colors.fadeIn('fast')
+      greyScaler(mini, i) for mini, i in $color_minis
+    else
+      $colors.fadeOut('fast')
+      $color_toggle.removeClass('grey_scale')
+      removeGrey(mini, i) for mini, i in $color_minis
 
   $color_links.bind 'click', (event) ->
     $target = $(event.target)

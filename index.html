@@ -17,13 +17,23 @@
 		<div id="container">
 			<div id="interface">
         <h2>Lock Screen Maker</h2>
-        <a href="#" id="color_toggle">colors</a>
-        <ul id="colors">
-          <li><a href="#" id="red"></a></li>
-          <li><a href="#" id="orange"></a></li>
-          <li><a href="#" id="green"></a></li>
-          <li><a href="#" id="blue"></a></li>
-        </ul>
+        <div id="color_selector">
+          <a href="#" id="color_toggle">
+            <div>
+              <div class="mini green"></div>
+              <div class="mini orange"></div>
+              <div class="mini red"></div>
+              <div class="mini blue"></div>
+            </div>
+          </a>
+          <ul id="colors">
+            <li><a href="#" class="green"></a></li>
+            <li><a href="#" class="orange"></a></li>
+            <li><a href="#" class="red"></a></li>
+            <li><a href="#" class="blue"></a></li>
+          </ul>
+          <div class="clear"></div>
+        </div>
 				<input id="message_input" type="text" placeholder="Message"/>
 				<input id="message_show" type="button" class="btn" value="Show" />
         <footer>

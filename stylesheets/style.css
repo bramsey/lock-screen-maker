@@ -58,14 +58,33 @@ quiet { font-size: .75em; color: #777;}
   margin-top: 24px;
 }
 
+#color_selector {
+  position: relative;
+  overflow: none;
+}
+
 #colors {
   list-style: none;
   position: relative;
-  margin-left: -4px;
   display: none;
+  float: left;
+  margin-top: 8px;
 }
 
 #color_toggle {
+  float: left;
+}
+
+#color_toggle > div {
+  border: 1px solid #444;
+  height: 30px;
+  width: 30px;
+}
+
+#color_toggle .mini {
+  height: 13px;
+  width: 13px;
+  border: 1px solid #444;
   float: left;
 }
 
@@ -84,7 +103,15 @@ quiet { font-size: .75em; color: #777;}
   border: 2px solid #444;
 }
 
-#green {background-color: #0f0;}
-#orange {background-color: #f63;}
-#red {background-color: #f00;}
-#blue {background-color: #36f;}
+.green {background-color: #0f0;}
+.orange {background-color: #f63;}
+.red {background-color: #f00;}
+.blue {background-color: #36f;}
+
+.clear { clear:both; }
+
+.grey0 { background-color: #ddd; }
+.grey1 { background-color: #bbb; }
+.grey2 { background-color: #999; }
+.grey3 { background-color: #777; }
+
