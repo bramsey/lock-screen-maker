@@ -22,6 +22,10 @@ $(document).ready ->
   $message_show = $('#message_show')
   $interface = $('#interface')
   $output = $('#output')
+  $colors = $('#colors')
+  $color_links = $colors.find('a')
+  $selected_color_link = null
+  default_color = $message.css('color')
 
   # prevent address bar compensation for mobile app
   unless window.navigator.standalone
@@ -32,6 +36,11 @@ $(document).ready ->
     event.stopPropagation()
     msg = $message_input.attr('value')
     $message.html(msg)
+    if $selected_color_link
+      color = $selected_color_link.css('background-color')
+      $message.css('color', color)
+    else
+      $message.css('color', default_color)
 
     $interface.hide()
     setTimeout(scroller, 0)
@@ -55,4 +64,14 @@ $(document).ready ->
 
   $('#color_toggle').bind 'click', (event) ->
     event.preventDefault()
-    $('#colors').toggle()
+    $colors.toggle()
+
+  $color_links.bind 'click', (event) ->
+    $target = $(event.target)
+    if $target.hasClass('selected')
+      $target.removeClass('selected')
+      $selected_color_link = null
+    else
+      $selected_color_link.removeClass('selected') if $selected_color_link
+      $target.addClass('selected')
+      $selected_color_link = $target

@@ -62,6 +62,7 @@ quiet { font-size: .75em; color: #777;}
   list-style: none;
   position: relative;
   margin-left: -4px;
+  display: none;
 }
 
 #color_toggle {

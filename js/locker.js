@@ -26,21 +26,31 @@
   };
 
   $(document).ready(function() {
-    var $interface, $message, $message_input, $message_show, $output;
+    var $color_links, $colors, $interface, $message, $message_input, $message_show, $output, $selected_color_link, default_color;
     $message = $('#message');
     $message_input = $('#message_input');
     $message_show = $('#message_show');
     $interface = $('#interface');
     $output = $('#output');
+    $colors = $('#colors');
+    $color_links = $colors.find('a');
+    $selected_color_link = null;
+    default_color = $message.css('color');
     if (!window.navigator.standalone) {
       $('body').css('min-height', '480px');
       setTimeout(scroller, 100);
     }
     $message_show.bind('click', function(event) {
-      var msg;
+      var color, msg;
       event.stopPropagation();
       msg = $message_input.attr('value');
       $message.html(msg);
+      if ($selected_color_link) {
+        color = $selected_color_link.css('background-color');
+        $message.css('color', color);
+      } else {
+        $message.css('color', default_color);
+      }
       $interface.hide();
       setTimeout(scroller, 0);
       $output.fadeIn('fast');
@@ -63,9 +73,23 @@
         return $message_show.fadeOut('fast');
       }
     });
-    return $('#color_toggle').bind('click', function(event) {
+    $('#color_toggle').bind('click', function(event) {
       event.preventDefault();
-      return $('#colors').toggle();
+      return $colors.toggle();
+    });
+    return $color_links.bind('click', function(event) {
+      var $target;
+      $target = $(event.target);
+      if ($target.hasClass('selected')) {
+        $target.removeClass('selected');
+        return $selected_color_link = null;
+      } else {
+        if ($selected_color_link) {
+          $selected_color_link.removeClass('selected');
+        }
+        $target.addClass('selected');
+        return $selected_color_link = $target;
+      }
     });
   });
 
