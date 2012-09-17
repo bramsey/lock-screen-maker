@@ -26,6 +26,7 @@ $(document).ready ->
   $message = $('#message')
   $message_input = $('#message_input')
   $message_show = $('#message_show')
+  $actions = $('#actions')
   $interface = $('#interface')
   $output = $('#output')
   $colors = $('#colors')
@@ -66,9 +67,9 @@ $(document).ready ->
     if event.keyCode is 13 and msg != ''
       $message_show.trigger('click')
     else if msg != ''
-      $message_show.fadeIn('medium')
+      $actions.fadeIn('medium')
     else
-      $message_show.fadeOut('fast')
+      $actions.fadeOut('fast')
 
   $color_toggle.bind 'click', (event) ->
     event.preventDefault()

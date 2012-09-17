@@ -15,7 +15,7 @@ input {
 
 input[type=text] {
   padding: 8px 14px 8px 14px;
-	width: 244px;
+	width: 240px;
 }
 
 h2 { 
@@ -23,7 +23,11 @@ h2 {
   margin-bottom: .5em;
 }
 
-footer { margin-top: 1em; }
+footer { 
+  margin-top: 12px; 
+  float: left;
+  clear: both;
+}
 
 quiet { font-size: .75em; color: #777;}
 
@@ -32,8 +36,14 @@ quiet { font-size: .75em; color: #777;}
 	color: #000;
 }
 
-#message_show {
+#actions {
   display: none;
+  margin-top: .5em;
+}
+
+#message_show {
+  float: right;
+  margin-top: 1px;
 }
 
 .center {
@@ -60,6 +70,8 @@ quiet { font-size: .75em; color: #777;}
 
 #color_selector {
   position: relative;
+  float: left;
+  width: 180px;
   overflow: none;
 }
 

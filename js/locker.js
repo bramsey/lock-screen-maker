@@ -34,10 +34,11 @@
   };
 
   $(document).ready(function() {
-    var $color_links, $color_minis, $color_toggle, $colors, $interface, $message, $message_input, $message_show, $output, $selected_color_link, default_color;
+    var $actions, $color_links, $color_minis, $color_toggle, $colors, $interface, $message, $message_input, $message_show, $output, $selected_color_link, default_color;
     $message = $('#message');
     $message_input = $('#message_input');
     $message_show = $('#message_show');
+    $actions = $('#actions');
     $interface = $('#interface');
     $output = $('#output');
     $colors = $('#colors');
@@ -78,9 +79,9 @@
       if (event.keyCode === 13 && msg !== '') {
         return $message_show.trigger('click');
       } else if (msg !== '') {
-        return $message_show.fadeIn('medium');
+        return $actions.fadeIn('medium');
       } else {
-        return $message_show.fadeOut('fast');
+        return $actions.fadeOut('fast');
       }
     });
     $color_toggle.bind('click', function(event) {
