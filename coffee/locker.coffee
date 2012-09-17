@@ -52,3 +52,7 @@ $(document).ready ->
       $message_show.fadeIn('medium')
     else
       $message_show.fadeOut('fast')
+
+  $('#color_toggle').bind 'click', (event) ->
+    event.preventDefault()
+    $('#colors').toggle()

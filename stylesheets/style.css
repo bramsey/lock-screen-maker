@@ -57,3 +57,33 @@ quiet { font-size: .75em; color: #777;}
   margin: 24px;
   margin-top: 24px;
 }
+
+#colors {
+  list-style: none;
+  position: relative;
+  margin-left: -4px;
+}
+
+#color_toggle {
+  float: left;
+}
+
+#colors li {
+  float: left;
+  margin-left: 4px;
+}
+
+#colors a {
+  text-decoration: none;
+  padding: 5px 14px 5px 14px;
+  border: 2px solid #fff;
+}
+
+#colors a.selected {
+  border: 2px solid #444;
+}
+
+#green {background-color: #0f0;}
+#orange {background-color: #f63;}
+#red {background-color: #f00;}
+#blue {background-color: #36f;}

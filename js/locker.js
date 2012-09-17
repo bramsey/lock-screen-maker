@@ -52,7 +52,7 @@
       $interface.fadeIn('fast');
       return $message_input.focus();
     });
-    return $message_input.bind('keyup', function(event) {
+    $message_input.bind('keyup', function(event) {
       var msg;
       msg = $message_input.attr('value');
       if (event.keyCode === 13 && msg !== '') {
@@ -62,6 +62,10 @@
       } else {
         return $message_show.fadeOut('fast');
       }
+    });
+    return $('#color_toggle').bind('click', function(event) {
+      event.preventDefault();
+      return $('#colors').toggle();
     });
   });
 
