@@ -15,7 +15,7 @@ I recommend saving the page to your phone's home screen to run in full webapp mo
 
 ## Example
 
-![Example](example.PNG "Example")
+![Example](http://billiamram.com/lock-screen-maker/example.PNG "Example")
 
 ## Try it out
 
