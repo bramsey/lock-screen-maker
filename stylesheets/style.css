@@ -9,7 +9,7 @@ body {
 }
 
 .exact_height {
-  min-height: 568px;
+  min-height: 480px;
 }
 
 input {
@@ -58,12 +58,22 @@ quiet { font-size: .75em; color: #777;}
 
 #output {
   display: none;
-  height: 262px;
+  height: 262px; 
   width: 320px;
   //border-top: 1px solid #000;
   //border-bottom: 1px solid #000;
   margin-top: 96px;
   overflow: hidden;
+}
+
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .exact_height {
+    min-height: 568px;
+  }
+
+  #output {
+    height: 350px;
+  }
 }
 
 #interface { 
