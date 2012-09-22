@@ -13,6 +13,10 @@ I recommend saving the page to your phone's home screen to run in full webapp mo
 3. Take a screen shot of the page from your phone.
 4. Find the screen shot and set it as your phone's lock screen.
 
+## Example
+
+![Example](example.PNG "Example")
+
 ## Try it out
 
 http://billiamram.com/lock-screen-maker/
