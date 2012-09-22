@@ -38,7 +38,7 @@ $(document).ready ->
 
   # prevent address bar compensation for mobile app
   unless window.navigator.standalone
-    $('body').css('min-height', '480px')
+    $('body').addClass('exact_height')
     setTimeout(scroller, 100)
 
   $message_show.bind 'click', (event) ->

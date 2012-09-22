@@ -48,7 +48,7 @@
     $color_toggle = $('#color_toggle');
     default_color = $message.css('color');
     if (!window.navigator.standalone) {
-      $('body').css('min-height', '480px');
+      $('body').addClass('exact_height');
       setTimeout(scroller, 100);
     }
     $message_show.bind('click', function(event) {
