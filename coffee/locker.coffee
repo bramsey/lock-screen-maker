@@ -2,6 +2,9 @@
 scroller = ->
   window.scrollTo(0,0)
 
+isIphone5 = ->
+  window.screen.height is 568
+
 greyScaler = (mini, i) ->
   $(mini).addClass('grey' + i)
 
@@ -10,12 +13,19 @@ removeGrey = (mini, i) ->
 
 # dynamically resizes the output to maximize space
 fitSize = ($message) ->
-  $message.css('font-size', 223)
+  if isIphone5()
+    initial_font = 298
+    max_height = 334
+  else
+    initial_font = 223
+    max_height = 250
+
+  $message.css('font-size', initial_font)
   width = $message.width()
   height = $message.height()
   size = parseInt($message.css('font-size'), 10)
 
-  while (width > 304 or height > 250)
+  while (width > 304 or height > max_height)
     size = parseInt($message.css('font-size'), 10)
     break if size < 12
     $message.css('font-size', size - 1)
